@@ -27,6 +27,8 @@ public class Pathfinder {
         // be null
     	SearchTreeNode initialState = new SearchTreeNode(problem.INITIAL_STATE, null, null);
     	frontier.add(initialState);
+    	
+    	SearchTreeNode current = initialState;
         
         // TODO: Loop: as long as the frontier is not empty...
     	while (frontier != null) {
@@ -37,8 +39,13 @@ public class Pathfinder {
     			MazeState xMod = x.getValue();
     			if (problem.isGoal(xMod)) {
     				// return xMod and path to get there
+    				// call helper method which holds the strings of the actions, set current to parent
+    				// until you hit the root
     			}
+    			// make a new treeNode and add it to the frontier and it consists of value, key, current
     		}
+    		// pop the head of the LinkedList
+    		// set current = new head of LinkedList
     	}
         
             
@@ -59,6 +66,8 @@ public class Pathfinder {
         // Should never get here, but just return null to make the compiler happy
         return null;
     }
+    
+    // Helper that starts at goal and goes up the tree to root which holds moves
     
 }
 
