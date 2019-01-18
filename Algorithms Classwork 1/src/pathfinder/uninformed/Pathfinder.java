@@ -45,7 +45,7 @@ public class Pathfinder {
     			// make a new treeNode and add it to the frontier and it consists of value, key, current
     		}
     		// pop the head of the LinkedList
-    		// set current = new head of LinkedList
+    		// set current = new head of LinkedList //
     	}
         
             
