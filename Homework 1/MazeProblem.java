@@ -103,7 +103,7 @@ public class MazeProblem {
      * @return Boolean of whether or not the given state is a Goal.
      */
     public boolean isGoal (MazeState state) {
-        return state.equals(GOAL_STATE);
+        return goals.containsValue(state);
     }
 
     /**
@@ -182,6 +182,13 @@ public class MazeProblem {
       else {
         return 1;
       }
+    }
+    
+    public int estimateDistance(MazeState state, MazeState destination) {
+    	int distance = 0;
+    	distance += state.row - destination.row;
+    	distance += state.col - destination.col;
+    	return distance;
     }
 
 }
