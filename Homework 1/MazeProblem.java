@@ -192,8 +192,8 @@ public class MazeProblem {
     }
     
     public int getTotalCost(SearchTreeNode node) {
-    	int cost = 0;
     	SearchTreeNode current = node;
+    	int cost = getCost(current.state);
     	while(current.parent != null) {
     		cost += getCost(current.parent.state);
     		current = current.parent;
@@ -208,16 +208,16 @@ public class MazeProblem {
     		int minDistance = 2147483647;
     		for (Entry<String, MazeState> x : goals.entrySet()) {
     			MazeState xMod = x.getValue();
-    			int tempDistance = state.row - xMod.row;
-    			tempDistance += state.col - xMod.col;
+    			int tempDistance = Math.abs(state.row - xMod.row);
+    			tempDistance += Math.abs(state.col - xMod.col);
     			if(tempDistance < minDistance) {
     				minDistance = tempDistance;
     			}
     		}
     		distance = minDistance;
     	} else {
-    		distance += state.row - KEY_STATE.row;
-        	distance += state.col - KEY_STATE.col;
+    		distance += Math.abs(state.row - KEY_STATE.row);
+        	distance += Math.abs(state.col - KEY_STATE.col);
     	}
     	
     	return distance;

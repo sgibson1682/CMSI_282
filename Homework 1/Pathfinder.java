@@ -21,6 +21,9 @@ public class Pathfinder {
 	public static ArrayList<String> solve(MazeProblem problem) {
 		// TODO: Initialize frontier -- what data structure should you use here for
 		// breadth-first search? Recall: The frontier holds SearchTreeNodes!
+		if (problem.foundKey()) {
+			return null;
+		}
 		PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>(
 				(SearchTreeNode s1, SearchTreeNode s2) -> s1.cost(problem) - s2.cost(problem));
 
